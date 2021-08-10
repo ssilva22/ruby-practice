@@ -1,10 +1,13 @@
 class ArticlesController < ApplicationController
+    ARTICLES_PER_PAGE= 5
+    
     before_action :set_article, only: [:show, :edit , :update , :destroy]
     def show 
     end
 
     def index
-        @articles = Article.all
+        @page =params.fetch(:page , 0).to_i
+        @articles = Article.offset(@page*ARTICLES_PER_PAGE).limit(ARTICLES_PER_PAGE)
     end
 
     def new

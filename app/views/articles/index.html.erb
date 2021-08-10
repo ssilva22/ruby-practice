@@ -1,3 +1,13 @@
 
 <h1 class="text-center mt-4">Articles listing page</h1>
 <%= render 'article' %>
+
+
+
+<nav aria-label="Page navigation example ">
+  <ul class="pagination justify-content-center  mb-n1" id="page__color">
+      <%= link_to "Previous Page", articles_path(page:@page-1),class:"page-link" %>
+    <%= link_to "Next Page", articles_path(page:@page+1),class:"page-link"%>
+    </li>
+  </ul>
+</nav>
