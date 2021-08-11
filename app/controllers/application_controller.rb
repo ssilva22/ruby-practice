@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!current_user #!! turns things into a boolean in ruby
     end
+
+    def require_user
+        if !logged_in?
+         flash[:alert] = "You must be logged in to perform that action"
+    end
 end
